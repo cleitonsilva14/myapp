@@ -30,7 +30,14 @@ public class ClubController {
         List<ClubDto> clubs = clubService.findAllClubs();
         model.addAttribute("clubs", clubs);
         return "clubs-list";
-        //  video 5 - 6:04 min
+
+    }
+
+    @GetMapping("/clubs/{clubId}")
+    public String clubDetail(@PathVariable("clubId") long clubId, Model model){
+        ClubDto clubDto = clubService.findClubById(clubId);
+        model.addAttribute("club", clubDto);
+        return "clubs-detail";
     }
 
     @GetMapping("/clubs/new")
@@ -38,7 +45,8 @@ public class ClubController {
         Club club = new Club();
         model.addAttribute("club", club);
         return "clubs-create";
-    }// video 8 - 3:48 min
+    }
+
 
     @PostMapping("/clubs/new")
     public String saveClub(@Valid @ModelAttribute("club") ClubDto clubDto, BindingResult result, Model model){
