@@ -1,7 +1,6 @@
 package br.com.myapp.models;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,7 +11,6 @@ import org.hibernate.annotations.UpdateTimestamp;
 import java.time.LocalDateTime;
 
 @Data
-@NotBlank
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
