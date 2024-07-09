@@ -23,7 +23,9 @@ public class Club {
     private Long id;
     private String title;
 
+    @Column(length = 550)
     private String photoUrl;
+
 
     private String content;
 

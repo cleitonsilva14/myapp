@@ -3,6 +3,7 @@ package br.com.myapp.controller;
 import br.com.myapp.dto.ClubDto;
 import br.com.myapp.models.Club;
 import br.com.myapp.service.ClubService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -40,8 +41,14 @@ public class ClubController {
     }// video 8 - 3:48 min
 
     @PostMapping("/clubs/new")
-    public String saveClub(@ModelAttribute("club") Club club){
-        clubService.saveClub(club);
+    public String saveClub(@Valid @ModelAttribute("club") ClubDto clubDto, BindingResult result, Model model){
+
+        if(result.hasErrors()){
+            model.addAttribute("club", clubDto);
+            return "clubs-create";
+        }
+
+        clubService.saveClub(clubDto);
         return "redirect:/clubs";
     }
 
@@ -54,7 +61,12 @@ public class ClubController {
     }
 
     @PostMapping("/clubs/{clubId}/edit")
-    public  String updateClub(@PathVariable("clubId") Long clubId, @ModelAttribute("club") ClubDto club, BindingResult result){
+    public  String updateClub(@PathVariable("clubId") Long clubId, @Valid @ModelAttribute("club") ClubDto club, BindingResult result){
+
+        if(result.hasErrors()){
+            return "clubs-edit";
+        }
+
         club.setId(clubId);
         clubService.updateClub(club);
         return "redirect:/clubs";
