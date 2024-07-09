@@ -12,4 +12,7 @@ public interface ClubService {
     Club saveClub(Club club);
 
 
+    ClubDto findClubById(long id);
+
+    void updateClub(ClubDto club);
 }
