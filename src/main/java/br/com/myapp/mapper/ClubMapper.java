@@ -15,6 +15,7 @@ public class ClubMapper {
                 .title(club.getTitle())
                 .photoUrl(club.getPhotoUrl())
                 .createdOn(club.getCreatedOn())
+                .createdBy(club.getCreatedBy())
                 .updatedOn(club.getUpdatedOn())
                 .build();
         return clubDto;
@@ -26,6 +27,7 @@ public class ClubMapper {
                 .title(club.getTitle())
                 .photoUrl(club.getPhotoUrl())
                 .content(club.getContent())
+                .createdBy(club.getCreatedBy())
                 .createdOn(club.getCreatedOn())
                 .updatedOn(club.getCreatedOn())
                 .events(club.getEvents().stream().map((event) -> mapToEventDto(event)).collect(Collectors.toList()))

@@ -1,6 +1,7 @@
 package br.com.myapp.dto;
 
 
+import br.com.myapp.models.UserEntity;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Builder;
 import lombok.Data;
@@ -24,6 +25,8 @@ public class ClubDto {
     private String content;
     private LocalDateTime createdOn;
     private LocalDateTime updatedOn;
+
+    private UserEntity createdBy;
 
     private List<EventDto> events;
 
