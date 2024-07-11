@@ -7,10 +7,11 @@ import br.com.myapp.repository.RoleRepository;
 import br.com.myapp.repository.UserRepository;
 import br.com.myapp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
+@Service
 public class UserServiceImpl implements UserService {
 
     private UserRepository userRepository;
@@ -32,4 +33,16 @@ public class UserServiceImpl implements UserService {
         user.setRoles(Arrays.asList(role));
         userRepository.save(user);
     }
+
+    @Override
+    public UserEntity findByEmail(String email) {
+        return null;
+    }
+
+    @Override
+    public UserEntity findByUsername(String username) {
+        return null;
+    }
+
+
 }
