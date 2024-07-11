@@ -30,7 +30,7 @@ public class Event {
     private String photoUrl;
 
     @CreationTimestamp
-    private LocalDateTime createOn;
+    private LocalDateTime createdOn;
 
     @UpdateTimestamp
     private LocalDateTime updatedOn;
